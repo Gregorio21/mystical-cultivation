@@ -2,7 +2,6 @@ import { Box, Tabs, Tab, Button, Typography, LinearProgress, CardActionArea, Car
 import React from 'react';
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Dantian } from './Dantian';
-import { PinkSphere } from './PinkSphere';
 
 
 export function MenuSideBar(props: any){
@@ -38,7 +37,7 @@ export function MenuSideBar(props: any){
                     }}>
                       <Typography variant='h3' component='h3'> Mystical Cultivation </Typography>
                       <Typography variant='h4' component='h4'> {props.tier.name} {props.level}: {props.cultivation}/{props.levelCost} </Typography>
-                      <Dantian/>
+                      <Dantian particles={props.particles}/>
                     </CardActionArea>
                     { props.cultivation === props.levelCost && <Button color='success' variant='contained' onClick={() => props.breakthrough()}> Breakthrough! </Button>}
                   </Card>
