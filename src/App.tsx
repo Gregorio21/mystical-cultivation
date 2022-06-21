@@ -15,8 +15,12 @@ function App() {
   const [tier, updateTier] = React.useState(0);
   //your level within your current tier
   const [level, updateLevel] = React.useState(1);
+  //changes how fast you gather qi for breakthroughs
+  const [talent, updateTalent] = React.useState(1);
+  //changes how fast you comprhend laws (and possibly other concepts)
+  const [comprehension, updateComprehension] = React.useState(1);
   const [power, updatePower] = React.useState(10);
-
+  //list of postions for 3d speheres that appear within the "dantian"
   const [particles, setParticles] = React.useState<number[][] | []>([]);
 
   function createParticle(){
@@ -33,8 +37,10 @@ function App() {
 
   function cultivate(){
     if(cultivation < levelCost){
-      updateCultivation(cultivation+1);
-      setParticles([...particles,createParticle()]);
+      updateCultivation(cultivation+talent);
+      for(let i = 0; i < talent;i++){
+        setParticles([...particles,createParticle()]);
+      };
     }
   }
   function breakthrough(){
@@ -64,6 +70,20 @@ function App() {
       name: "Foundation Establishment",
       levelBonusMultiplier: 1.5,
       levelCostMultiplier: 1.45,
+      maxLevel: 9,
+
+    },
+    {
+      name: "Core Formation",
+      levelBonusMultiplier: 2.0,
+      levelCostMultiplier: 1.9,
+      maxLevel: 9,
+
+    },
+    {
+      name: "Nascent Soul",
+      levelBonusMultiplier: 3.0,
+      levelCostMultiplier: 2.8,
       maxLevel: 9,
 
     },

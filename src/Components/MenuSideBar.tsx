@@ -1,6 +1,7 @@
 import { Box, Tabs, Tab, Button, Typography, LinearProgress, CardActionArea, Card } from '@mui/material';
 import React from 'react';
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Comprehension } from './Comprehension';
 import { Dantian } from './Dantian';
 
 
@@ -18,8 +19,10 @@ export function MenuSideBar(props: any){
           }}>
             <Tabs orientation='vertical' value={value} onChange={handleChange}>
               <Tab value='one' label='Cultivation Chamber' to='/' component={Link}/>
-              <Tab value='two' label='Danger Zone' to='/DangerZone' component={Link}/>
-              <Tab value='three' label='Auction Hall' to='/AuctionHall' component={Link}/>
+              <Tab value='two' label='Comprehension Hall' to='/ComprehensionHall' component={Link}/>
+              <Tab value='three' label='Danger Zone' to='/DangerZone' component={Link}/>
+              <Tab value='four' label='Auction Hall' to='/AuctionHall' component={Link}/>
+              <Tab value='five' label='Reincarnation' to='/Reincarnation' component={Link}/>
             </Tabs>
           </Box>
             <Routes>
@@ -44,6 +47,19 @@ export function MenuSideBar(props: any){
 
                 </Box>
               }/>
+              <Route path="/ComprehensionHall" element={
+                <Box component='div' style={{
+                    height:'80vh',
+                    width:'80vw',
+
+                  }}>
+                    <Card style={{
+                      height:'100vh',
+                    }}>
+                      <Comprehension/>
+                    </Card>
+                </Box>
+                }/>
               <Route path="/DangerZone" element={
                 <Box component='div' style={{
                     height:'80vh',
@@ -69,7 +85,19 @@ export function MenuSideBar(props: any){
                       
                     </Card>
                 </Box>}/>
+                <Route path="/Reincarnation" element={
+                <Box component='div' style={{
+                    height:'80vh',
+                    width:'80vw',
 
+                  }}>
+                    <Card style={{
+                      height:'100vh',
+                    }}>
+                      
+                    </Card>
+                </Box>
+                }/>
             </Routes>
           
           </Router>
